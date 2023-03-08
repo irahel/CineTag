@@ -1,9 +1,10 @@
 import React from 'react'
 import styles from "./Banner.module.css";
 
-function Banner() {
+function Banner({img}) {
   return (
-    <div>index</div>
+    <div className={styles.banner}
+    style={{backgroundImage: `url(/imagens/banner-${img}.png)`}} />
   )
 }
 
