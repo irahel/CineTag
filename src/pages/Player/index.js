@@ -4,10 +4,15 @@ import Banner from 'components/Banner';
 import Title from 'components/Title';
 import videos from 'json/db.json';
 import { useParams } from 'react-router-dom';
+import Erro from 'pages/Erro';
 
 function Player() {
     const params = useParams();
     const video = videos.find((video) => video.id === Number(params.id));
+
+    if(!video){
+        return <Erro/>
+    }
 
     return (
     <>
