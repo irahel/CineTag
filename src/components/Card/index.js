@@ -3,6 +3,7 @@ import styles from "./Card.module.css";
 import iconeFavoritar from "./favorite_outline.png";
 import iconeFavoritarComplete from "./favorite.png";
 import { useFavorites } from "contexts/FavoritesContext";
+import { Link } from "react-router-dom";
 
 function Card({id, title, banner}) {
 
@@ -12,11 +13,13 @@ function Card({id, title, banner}) {
 
   return (
     <div className={styles.container}>
+      <Link className={styles.link} to={`/${id}`}>
         <img src={banner} alt={title} className={styles.banner} />
         <h2>{title}</h2>
-        <img src={icon} alt="iconeFavoritar" className={styles.fav}
-            onClick={() => addFavorite({id, title, banner})}
-        />
+      </Link>
+      <img src={icon} alt="iconeFavoritar" className={styles.fav}
+          onClick={() => addFavorite({id, title, banner})}
+      />
     </div>
   )
 }
